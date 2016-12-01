@@ -1,8 +1,8 @@
 from lasagne.layers import (
-    Layer, NonlinearityLayer, Conv2DLayer, DropoutLayer, Pool2DLayer, ConcatLayer, Deconv2DLayer,
+    NonlinearityLayer, Conv2DLayer, DropoutLayer, Pool2DLayer, ConcatLayer, Deconv2DLayer,
     DimshuffleLayer, ReshapeLayer, get_output, BatchNormLayer)
 
-from lasagne.nonlinearities import linear, softmax, rectify
+from lasagne.nonlinearities import linear, softmax
 from lasagne.init import HeUniform
 
 def BN_ReLU_Conv(inputs, n_filters, filter_size=3, dropout_p=0.2):

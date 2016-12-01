@@ -9,7 +9,6 @@ train_crop_size = (224, 224) # None for full size
 
 # Training
 seed = 0
-savepath = '' # Folder where the logs of the experiment will be saved
 learning_rate = 1e-3
 lr_sched_decay = 0.995 # Applied each epocjh
 weight_decay = 0.0001
@@ -17,7 +16,7 @@ num_epochs = 750
 max_patience = 150
 loss_function = crossentropy
 optimizer = rmsprop # Consider adam for training on other dataset, or decrease epsilon to 1e-12
-batch_size = 5
+batch_size = 3
 
 # Architecture
 # pretrained_model= None # path of the weights of a pretrained network

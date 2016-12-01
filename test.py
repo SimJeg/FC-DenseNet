@@ -11,7 +11,8 @@ from  metrics import numpy_metrics, theano_metrics
 
 def test(config_path, weight_path):
     """
-    #TODO comment
+    This function builds the model defined in config_path and restores the weights defined in weight_path. It then
+    reports the jaccard and global accuracy metrics on the CamVid test set.
     """
 
     cf = imp.load_source('cf', config_path)
@@ -60,8 +61,7 @@ def test(config_path, weight_path):
     n_imgs = 0
     for i in range(n_batches):
         X, Y = iterator.next()
-        # I, U, acc = numpy_metrics(f(X), Y[:, None, :, :], n_classes, void_labels)
-        I, U, acc = f(X.astype('float32'), Y[:, None, :, :].astype('float32'))
+        I, U, acc = f(X.astype('float32'), Y[:, None, :, :])
         I_tot += I
         U_tot += U
         acc_tot += acc * batch_size

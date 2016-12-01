@@ -201,9 +201,6 @@ def initiate_training(cf):
     np.random.seed(cf.seed)
     theano.tensor.shared_randomstreams.RandomStreams(cf.seed)
 
-    # Prepare save directories
-    cf.savepath = os.path.join(cf.savepath, cf.exp_name)  # local path
-
     if not os.path.exists(cf.savepath):
         os.makedirs(cf.savepath)
     else:
@@ -251,7 +248,7 @@ if __name__ == '__main__':
 
     # Parse the configuration file
     cf = imp.load_source('config', arguments.config_path)
-    cf.exp_name = arguments.exp_name
+    cf.savepath = arguments.exp_name
     cf.config_path = arguments.config_path
 
     # You can easily launch different experiments by slightly changing cf and initiate training

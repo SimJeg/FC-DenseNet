@@ -73,7 +73,6 @@ def crossentropy(y_pred, y_true, void_labels):
     mask = T.ones_like(y_true)
     for el in void_labels:
         mask = T.switch(T.eq(y_true, el), np.int32(0), mask)
-        # mask =  T.set_subtensor(mask[T.eq(y_true, el).nonzero()], np.int32(0))
 
     # Modify y_true temporarily
     y_true_tmp = y_true * mask
