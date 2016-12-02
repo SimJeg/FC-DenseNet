@@ -21,7 +21,7 @@ ___
 
 The architecture of the model is defined in FC-DenseNet.py. To train a model, you need to prepare a configuration file (folder config) where all the parameters needed for creating and training your model are precised. DenseNets contain lot of connections making graph optimization difficult for Theano. We strongly recommend to use the flags described further.
 
-To train a model, use the command : `THEANO_FLAGS='device=cuda,optimizer=fast_compile,optimizer_including=fusion' python train.py -c config_path -e experiment_name`. All the logs of the experiments are stored in the folder experiment_name.
+To train the FC-DenseNet103 model, use the command : `THEANO_FLAGS='device=cuda,optimizer=fast_compile,optimizer_including=fusion' python train.py -c config/FC-DenseNet103.py -e experiment_name`. All the logs of the experiments are stored in the folder experiment_name.
 
 On a Titan X 12GB, for the model FC-DenseNet103 (see folder config), compilation takes around 400 sec and 1 epoch 120 sec for training and 40 sec for validation.
 
