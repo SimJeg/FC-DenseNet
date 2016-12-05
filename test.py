@@ -61,7 +61,7 @@ def test(config_path, weight_path):
     n_imgs = 0
     for i in range(n_batches):
         X, Y = iterator.next()
-        I, U, acc = f(X.astype('float32'), Y[:, None, :, :])
+        I, U, acc = f(X, Y[:, None, :, :])
         I_tot += I
         U_tot += U
         acc_tot += acc * batch_size

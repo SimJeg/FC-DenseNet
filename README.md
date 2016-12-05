@@ -12,6 +12,14 @@ You need to install :
 - The dataset loader (**Not yet available**)
 - (Recommend) [The new Theano GPU backend](https://github.com/Theano/libgpuarray). Compilation will be much faster.
 
+
+## Data
+
+The data-loader we used for the experiments will be released later. If you do want to train models now, you need to create a function load_data which returns 3 iterators (for training, validation and test). When applying next(), the iterator returns two values X, Y where X is the batch of input images (shape= (batch_size, n_classes, n_rows, n_cols), dtype=float32) and Y the batch of target segmentation maps (shape=(batch_size, n_rows, n_cols), dtype=int32) where each pixel in Y is an int indicating the class of the pixel.
+
+The iterator must also have the following methods (so they are not python iterators) : get_n_classes (returns the number of classes), get_n_samples (returns the number of examples in the set), get_n_batches (returns the number of batches necessary to see the entire set) and get_void_labels (returns a list containing the classes associated to void). It might be easier to change directly the files train.py and test.py.
+
+
 ## Run experiments
 
 The architecture of the model is defined in FC-DenseNet.py. To train a model, you need to prepare a configuration file (folder config) where all the parameters needed for creating and training your model are precised. DenseNets contain lot of connections making graph optimization difficult for Theano. We strongly recommend to use the flags described further.

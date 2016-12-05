@@ -43,7 +43,7 @@ class Network():
         # Theano variables
         self.input_var = T.tensor4('input_var', dtype='float32')  # input image
         self.output_var = T.tensor4('output_var', dtype='float32')  # output of the network
-        self.target_var = T.tensor4('target_var', dtype='float32')  # target
+        self.target_var = T.tensor4('target_var', dtype='int32')  # target
 
         #####################
         # First Convolution #

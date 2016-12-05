@@ -29,7 +29,7 @@ def batch_loop(iterator, f, epoch, phase, history):
         batch_size = X.shape[0]
         n_imgs += batch_size
 
-        loss, I, U, acc = f(X.astype('float32'), Y[:, None, :, :].astype('float32'))
+        loss, I, U, acc = f(X, Y[:, None, :, :])
         if i == 0:
             loss_tot = loss * batch_size
             I_tot = I

@@ -66,7 +66,7 @@ def numpy_metrics(y_pred, y_true, n_classes, void_labels):
 def crossentropy(y_pred, y_true, void_labels):
     # Flatten y_true
     y_true = T.flatten(y_true)
-    y_true = T.cast(y_true, 'int32')
+    
     # Clip predictions
 
     # Create mask
