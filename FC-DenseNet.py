@@ -91,7 +91,6 @@ class Network():
             l = BN_ReLU_Conv(stack, growth_rate, dropout_p=dropout_p)
             block_to_upsample.append(l)
             stack = ConcatLayer([stack, l])
-            n_filters += growth_rate
 
         #######################
         #   Upsampling path   #
@@ -106,7 +105,6 @@ class Network():
             block_to_upsample = []
             for j in range(n_layers_per_block[n_pool + i + 1]):
                 l = BN_ReLU_Conv(stack, growth_rate, dropout_p=dropout_p)
-                n_filters += growth_rate
                 block_to_upsample.append(l)
                 stack = ConcatLayer([stack, l])
 
