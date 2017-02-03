@@ -1,7 +1,7 @@
 ## Introduction
 
 This repo contains the code to train and evaluate FC-DenseNets as described in [The One Hundred Layers Tiramisu:
-Fully Convolutional DenseNets for Semantic Segmentation](https://arxiv.org/abs/1611.09326.). We investigate the use of [Densely Connected Convolutional Networks for semantic segmentation](https://arxiv.org/abs/1608.06993), and report state of the art results on datasets such as CamVid.
+Fully Convolutional DenseNets for Semantic Segmentation](https://arxiv.org/abs/1611.09326). We investigate the use of [Densely Connected Convolutional Networks](https://arxiv.org/abs/1608.06993) for semantic segmentation, and report state of the art results on datasets such as CamVid.
 
 ## Installation
 
