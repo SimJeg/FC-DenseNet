@@ -35,12 +35,12 @@ We publish the weights of our model FC-DenseNet103. Metrics claimed in the paper
 
 ## About the "m" number in the paper
 
-There is a small error with the "m" number in the Table 2 of the paper (that you may understand when running the code!). All values from the bottleneck (880, 1072, 800..) should be incremented by 16 (896, 1088, 816...).
+There is a small error with the "m" number in the Table 2 of the paper (that you may understand when running the code!). All values from the bottleneck to the last block (880, 1072, 800 and 368) should be incremented by 16 (896, 1088, 816 and 384).
 
 Here how we compute this value representing the number of feature maps concatenated into the "stack" : 
-    - First convolution : m=48
-    - In the downsampling part + bottleneck, m <- m + n_layers * growth_rate [linear growth]. First block : m = 48 + 4x16 = 112. Second block m = 112 + 5x16 = 192. Until the bottleneck : m = 656 + 15x16 = 896.
-    - In the upsampling part, m is the sum of 3 terms : the m value corresponding to same resolution in the downsampling part (skip connection), the number of feature maps from the upsampled block (n_layers[B-1] * growth_rate) and the number of feature maps in the new block (n_layers[B] * growth_rate). First upsampling, m =  656 + 15x16 + 12x16 = 1088. Second upsampling, m = 464 + 12x16 + 10x16 = 816 etc.
+- First convolution : m=48
+ - In the downsampling part + bottleneck, m[B] = m[B-1] + n_layers[B] * growth_rate [linear growth]. First block : m = 48 + 4x16 = 112. Second block m = 112 + 5x16 = 192. Until the bottleneck : m = 656 + 15x16 = 896.
+- In the upsampling part, m[B] is the sum of 3 terms : the m value corresponding to same resolution in the downsampling part (skip connection), the number of feature maps from the upsampled block (n_layers[B-1] * growth_rate) and the number of feature maps in the new block (n_layers[B] * growth_rate). First upsampling, m =  656 + 15x16 + 12x16 = 1088. Second upsampling, m = 464 + 12x16 + 10x16 = 816. Third upsampling, m = 304 + 10x16 + 7x16 = 576, Fourth upsampling, m = 192 + 7x16 + 5x16 = 384 and fifth upsampling, m = 112 + 5x16 + 4x16 = 256 
     
 
 
