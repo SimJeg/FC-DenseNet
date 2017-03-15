@@ -15,6 +15,10 @@ You need to install :
 
 ## Data
 
+The data loader is now available here : https://github.com/fvisin/dataset_loaders
+Thanks a lot to Francesco Visin, please cite if you use his data loader. Some adaptations may be do on the actual code, I hope to find some time to modify it !
+____
+
 The data-loader we used for the experiments will be released later. If you do want to train models now, you need to create a function load_data which returns 3 iterators (for training, validation and test). When applying next(), the iterator returns two values X, Y where X is the batch of input images (shape= (batch_size, 3, n_rows, n_cols), dtype=float32) and Y the batch of target segmentation maps (shape=(batch_size, n_rows, n_cols), dtype=int32) where each pixel in Y is an int indicating the class of the pixel.
 
 The iterator must also have the following methods (so they are not python iterators) : get_n_classes (returns the number of classes), get_n_samples (returns the number of examples in the set), get_n_batches (returns the number of batches necessary to see the entire set) and get_void_labels (returns a list containing the classes associated to void). It might be easier to change directly the files train.py and test.py.
